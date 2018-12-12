@@ -1,0 +1,17 @@
+FROM nginx
+
+# Del existing nginx files 
+RUN rm -rf //usr/share/nginx/html/index.html
+RUN rm -rf //usr/share/nginx/html/50x.html
+
+#Copy contents of npm build to target container
+
+COPY /build /usr/share/nginx/html/
+
+# make app directory as the working directory.
+#WORKDIR /app
+
+#COPY /app/* /var/www/html/
+
+EXPOSE 80
+
