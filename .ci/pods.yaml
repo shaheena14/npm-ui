@@ -27,7 +27,7 @@ spec:
   volumes:
     - name: docker-config
       secret: 
-        secretName: ui-registry-acr-login
+        secretName: jenkins-acr-login
         items:
           - key: config.json
             path: config.json
