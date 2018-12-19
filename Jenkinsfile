@@ -18,7 +18,7 @@ pipeline {
 				 sh " ls -lart"
                  sh "chmod +x '.ci/scripts'"
 				 sh "chmod +x '.ci/scripts/jsonlint.sh'"
-                 sh "cd /home/.ci/scripts/"
+                 sh "cd '.ci/scripts/'"
                  sh " ls -lart"
                 }
 			}
