@@ -17,7 +17,10 @@ pipeline {
 				 sh "cd /home/"
 				 sh " ls -lart"
                  sh "chmod +x '.ci/scripts'"
-				}
+				 sh "chmod +x '.ci/scripts/jsonlint.sh'"
+                 sh "cd /home/.ci/scripts/"
+                 sh " ls -lart"
+                }
 			}
             stage('Lint and Build') {
                 steps {
