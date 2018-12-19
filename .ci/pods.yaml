@@ -42,6 +42,6 @@ spec:
       secret: 
         items: 
           - 
-            key: .dockerconfigjson
-            path: .docker/config.json
-        secretName: jenkins-acr-login
+            key: configjson
+            path: config.json
+        secretName: ui-registry-acr-login
