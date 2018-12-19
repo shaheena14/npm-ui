@@ -20,6 +20,8 @@ pipeline {
 				 sh "chmod +x '.ci/scripts/jsonlint.sh'"
                  sh "cd '.ci/scripts/'"
                  sh " ls -lart"
+                 sh "pwd"
+                 sh " echo $WORKSPACE"
                 }
 			}
             stage('Lint and Build') {
