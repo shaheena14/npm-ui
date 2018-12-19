@@ -8,8 +8,10 @@ spec:
   - name: jnlp
     tty: true
     securityContext:
-      runAsUser: 1000
       allowPrivilegeEscalation: false
+    etcHosts:
+      - hostname: tfs.assurant.com
+      ip: 172.20.0.42 
     image: jenkinsci/jnlp-slave:alpine
   - name: docker-builder
     image: gcr.io/kaniko-project/executor:debug
