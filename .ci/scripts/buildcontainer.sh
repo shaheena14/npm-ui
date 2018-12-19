@@ -3,7 +3,7 @@ MAJOR=1
 MINOR=0
 BUILD=$BUILD_ID
 VERSION=${MAJOR}.${MINOR}.${BUILD}
-sspdevnettest.azurecr.io/ui/ui-npm
+REPO=sspjenkins.azurecr.io/ui/ui-npm
 
 
 if [ "$BRANCH_NAME" = 'master' ]
