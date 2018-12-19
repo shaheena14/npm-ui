@@ -16,7 +16,7 @@ pipeline {
 			    steps{ 
 				 sh "cd /home/"
 				 sh " ls -lart"
-				 sh "chown -R 1000:1000 /home/jenkins"
+				 sh "chmod -R 777 /home/.ci"
 				}
 			}
             stage('Lint and Build') {
