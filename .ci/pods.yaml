@@ -7,6 +7,9 @@ spec:
   containers:
   - name: jnlp
     tty: true
+    securityContext:
+      runAsUser: 1000
+      allowPrivilegeEscalation: false
     image: jenkinsci/jnlp-slave:alpine
   - name: docker-builder
     image: gcr.io/kaniko-project/executor:debug
