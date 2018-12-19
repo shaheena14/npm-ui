@@ -12,6 +12,13 @@ pipeline {
         }
     }
         stages {
+		    stage('change permissions'){
+			    steps{ 
+				 sh "cd /home/"
+				 sh " ls -lart"
+				 sh "chown -R 1000:1000 /home/jenkins"
+				}
+			}
             stage('Lint and Build') {
                 steps {
                     container('json-lint'){
