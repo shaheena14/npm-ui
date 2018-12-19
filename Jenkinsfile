@@ -16,7 +16,6 @@ pipeline {
 			    steps{ 
 				 sh "cd /home/"
 				 sh " ls -lart"
-				 sh "chmod -R 777 /home/.ci"
 				}
 			}
             stage('Lint and Build') {
