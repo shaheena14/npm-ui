@@ -1,38 +1,47 @@
+--- 
 apiVersion: v1
 kind: Pod
-metadata:
-  labels:
+metadata: 
+  labels: 
     product-group: ui
-spec:
-  containers:
-  - name: jnlp
-    tty: true
-    securityContext:
-      allowPrivilegeEscalation: false
-    etcHosts:
-      - hostname: tfs.assurant.com
-      ip: 172.20.0.42 
-    image: jenkinsci/jnlp-slave:alpine
-  - name: docker-builder
-    image: gcr.io/kaniko-project/executor:debug
-    command:
-    - /busybox/cat
-    volumeMounts:
-      - name: docker-config
-        mountPath: "/kaniko/.docker"
-    env:
-      - name: DOCKER_CONFIG
-        value: "/kaniko/.docker"
-    tty: true
-  - name: json-lint
-    image: sahsu/docker-jsonlint:latest
-    command:
-    - cat
-    tty: true
-  volumes:
-    - name: docker-config
+spec: 
+  containers: 
+    - 
+      etcHosts: 
+        - 
+          hostname: tfs.assurant.com
+          ip: "172.20.0.42"
+      image: "jenkinsci/jnlp-slave:alpine"
+      name: jnlp
+      securityContext: 
+        allowPrivilegeEscalation: false
+      tty: true
+    - 
+      command: 
+        - /busybox/cat
+      env: 
+        - 
+          name: DOCKER_CONFIG
+          value: /kaniko/.docker
+      image: "gcr.io/kaniko-project/executor:debug"
+      name: docker-builder
+      tty: true
+      volumeMounts: 
+        - 
+          mountPath: /kaniko/.docker
+          name: docker-config
+    - 
+      command: 
+        - cat
+      image: "sahsu/docker-jsonlint:latest"
+      name: json-lint
+      tty: true
+  volumes: 
+    - 
+      name: docker-config
       secret: 
-        secretName: jenkins-acr-login
-        items:
-          - key: .dockerconfigjson
+        items: 
+          - 
+            key: .dockerconfigjson
             path: .docker/config.json
+        secretName: jenkins-acr-login
